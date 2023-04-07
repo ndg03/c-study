@@ -1,0 +1,11 @@
+F:\c#\RayTrace\bin\Debug\RayTrace.exe.config
+F:\c#\RayTrace\bin\Debug\RayTrace.exe
+F:\c#\RayTrace\bin\Debug\RayTrace.pdb
+F:\c#\RayTrace\obj\Debug\RayTrace.csproj.AssemblyReference.cache
+F:\c#\RayTrace\obj\Debug\RayTrace.csproj.SuggestedBindingRedirects.cache
+F:\c#\RayTrace\obj\Debug\RayTrace.Form1.resources
+F:\c#\RayTrace\obj\Debug\RayTrace.Properties.Resources.resources
+F:\c#\RayTrace\obj\Debug\RayTrace.csproj.GenerateResource.cache
+F:\c#\RayTrace\obj\Debug\RayTrace.csproj.CoreCompileInputs.cache
+F:\c#\RayTrace\obj\Debug\RayTrace.exe
+F:\c#\RayTrace\obj\Debug\RayTrace.pdb

@@ -1,0 +1,16 @@
+F:\c#\TX\bin\Debug\TX.exe.config
+F:\c#\TX\bin\Debug\TX.exe
+F:\c#\TX\bin\Debug\TX.pdb
+F:\c#\TX\obj\Debug\TX.csproj.AssemblyReference.cache
+F:\c#\TX\obj\Debug\TX.csproj.SuggestedBindingRedirects.cache
+F:\c#\TX\obj\Debug\TX.Form1.resources
+F:\c#\TX\obj\Debug\TX.Properties.Resources.resources
+F:\c#\TX\obj\Debug\TX.csproj.GenerateResource.cache
+F:\c#\TX\obj\Debug\TX.csproj.CoreCompileInputs.cache
+F:\c#\TX\obj\Debug\TX.exe
+F:\c#\TX\obj\Debug\TX.pdb
+F:\c#\TX\bin\Debug\Interop.WMPLib.dll
+F:\c#\TX\bin\Debug\AxInterop.WMPLib.dll
+F:\c#\TX\obj\Debug\Interop.WMPLib.dll
+F:\c#\TX\obj\Debug\AxInterop.WMPLib.dll
+F:\c#\TX\obj\Debug\TX.csproj.ResolveComReference.cache

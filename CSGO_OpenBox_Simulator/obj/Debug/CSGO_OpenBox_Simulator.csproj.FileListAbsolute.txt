@@ -1,0 +1,11 @@
+F:\c#\CSGO_OpenBox_Simulator\bin\Debug\CSGO_OpenBox_Simulator.exe.config
+F:\c#\CSGO_OpenBox_Simulator\bin\Debug\CSGO_OpenBox_Simulator.exe
+F:\c#\CSGO_OpenBox_Simulator\bin\Debug\CSGO_OpenBox_Simulator.pdb
+F:\c#\CSGO_OpenBox_Simulator\obj\Debug\CSGO_OpenBox_Simulator.csproj.AssemblyReference.cache
+F:\c#\CSGO_OpenBox_Simulator\obj\Debug\CSGO_OpenBox_Simulator.csproj.SuggestedBindingRedirects.cache
+F:\c#\CSGO_OpenBox_Simulator\obj\Debug\CSGO_OpenBox_Simulator.frmLogin.resources
+F:\c#\CSGO_OpenBox_Simulator\obj\Debug\CSGO_OpenBox_Simulator.Properties.Resources.resources
+F:\c#\CSGO_OpenBox_Simulator\obj\Debug\CSGO_OpenBox_Simulator.csproj.GenerateResource.cache
+F:\c#\CSGO_OpenBox_Simulator\obj\Debug\CSGO_OpenBox_Simulator.csproj.CoreCompileInputs.cache
+F:\c#\CSGO_OpenBox_Simulator\obj\Debug\CSGO_OpenBox_Simulator.exe
+F:\c#\CSGO_OpenBox_Simulator\obj\Debug\CSGO_OpenBox_Simulator.pdb

@@ -1,0 +1,12 @@
+F:\c#\qqTest\bin\Debug\qqTest.exe.config
+F:\c#\qqTest\bin\Debug\qqTest.exe
+F:\c#\qqTest\bin\Debug\qqTest.pdb
+F:\c#\qqTest\obj\Debug\qqTest.csproj.AssemblyReference.cache
+F:\c#\qqTest\obj\Debug\qqTest.csproj.SuggestedBindingRedirects.cache
+F:\c#\qqTest\obj\Debug\qqTest.FrmLogin.resources
+F:\c#\qqTest\obj\Debug\qqTest.Properties.Resources.resources
+F:\c#\qqTest\obj\Debug\qqTest.csproj.GenerateResource.cache
+F:\c#\qqTest\obj\Debug\qqTest.csproj.CoreCompileInputs.cache
+F:\c#\qqTest\obj\Debug\qqTest.exe
+F:\c#\qqTest\obj\Debug\qqTest.pdb
+F:\c#\qqTest\obj\Debug\qqTest.main_1.resources

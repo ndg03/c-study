@@ -1,0 +1,11 @@
+F:\c#\Screensaver_Zhiyin\bin\Debug\Screensaver_Zhiyin.exe.config
+F:\c#\Screensaver_Zhiyin\bin\Debug\Screensaver_Zhiyin.exe
+F:\c#\Screensaver_Zhiyin\bin\Debug\Screensaver_Zhiyin.pdb
+F:\c#\Screensaver_Zhiyin\obj\Debug\Screensaver_Zhiyin.csproj.AssemblyReference.cache
+F:\c#\Screensaver_Zhiyin\obj\Debug\Screensaver_Zhiyin.csproj.SuggestedBindingRedirects.cache
+F:\c#\Screensaver_Zhiyin\obj\Debug\Screensaver_Zhiyin.FrmScreen.resources
+F:\c#\Screensaver_Zhiyin\obj\Debug\Screensaver_Zhiyin.Properties.Resources.resources
+F:\c#\Screensaver_Zhiyin\obj\Debug\Screensaver_Zhiyin.csproj.GenerateResource.cache
+F:\c#\Screensaver_Zhiyin\obj\Debug\Screensaver_Zhiyin.csproj.CoreCompileInputs.cache
+F:\c#\Screensaver_Zhiyin\obj\Debug\Screensaver_Zhiyin.exe
+F:\c#\Screensaver_Zhiyin\obj\Debug\Screensaver_Zhiyin.pdb

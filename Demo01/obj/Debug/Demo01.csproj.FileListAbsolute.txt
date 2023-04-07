@@ -1,0 +1,8 @@
+F:\c#\Demo01\bin\Debug\Demo01.exe.config
+F:\c#\Demo01\bin\Debug\Demo01.exe
+F:\c#\Demo01\bin\Debug\Demo01.pdb
+F:\c#\Demo01\obj\Debug\Demo01.csproj.AssemblyReference.cache
+F:\c#\Demo01\obj\Debug\Demo01.csproj.SuggestedBindingRedirects.cache
+F:\c#\Demo01\obj\Debug\Demo01.csproj.CoreCompileInputs.cache
+F:\c#\Demo01\obj\Debug\Demo01.exe
+F:\c#\Demo01\obj\Debug\Demo01.pdb

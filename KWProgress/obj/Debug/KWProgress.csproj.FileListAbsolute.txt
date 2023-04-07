@@ -1,0 +1,8 @@
+F:\c#\KWProgress\obj\Debug\KWProgress.csproj.AssemblyReference.cache
+F:\c#\KWProgress\obj\Debug\KWProgress.UserControl1.resources
+F:\c#\KWProgress\obj\Debug\KWProgress.csproj.GenerateResource.cache
+F:\c#\KWProgress\obj\Debug\KWProgress.csproj.CoreCompileInputs.cache
+F:\c#\KWProgress\bin\Debug\KWProgress.dll
+F:\c#\KWProgress\bin\Debug\KWProgress.pdb
+F:\c#\KWProgress\obj\Debug\KWProgress.dll
+F:\c#\KWProgress\obj\Debug\KWProgress.pdb

@@ -1,0 +1,11 @@
+F:\c#\Generatingtopic\bin\Debug\Generatingtopic.exe.config
+F:\c#\Generatingtopic\bin\Debug\Generatingtopic.exe
+F:\c#\Generatingtopic\bin\Debug\Generatingtopic.pdb
+F:\c#\Generatingtopic\obj\Debug\Generatingtopic.csproj.AssemblyReference.cache
+F:\c#\Generatingtopic\obj\Debug\Generatingtopic.csproj.SuggestedBindingRedirects.cache
+F:\c#\Generatingtopic\obj\Debug\Generatingtopic.Form1.resources
+F:\c#\Generatingtopic\obj\Debug\Generatingtopic.Properties.Resources.resources
+F:\c#\Generatingtopic\obj\Debug\Generatingtopic.csproj.GenerateResource.cache
+F:\c#\Generatingtopic\obj\Debug\Generatingtopic.csproj.CoreCompileInputs.cache
+F:\c#\Generatingtopic\obj\Debug\Generatingtopic.exe
+F:\c#\Generatingtopic\obj\Debug\Generatingtopic.pdb

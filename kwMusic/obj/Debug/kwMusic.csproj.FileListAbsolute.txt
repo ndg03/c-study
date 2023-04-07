@@ -1,0 +1,16 @@
+F:\c#\kwMusic\bin\Debug\kwMusic.exe.config
+F:\c#\kwMusic\bin\Debug\kwMusic.exe
+F:\c#\kwMusic\bin\Debug\kwMusic.pdb
+F:\c#\kwMusic\obj\Debug\kwMusic.csproj.AssemblyReference.cache
+F:\c#\kwMusic\obj\Debug\kwMusic.csproj.SuggestedBindingRedirects.cache
+F:\c#\kwMusic\obj\Debug\kwMusic.frmBackGround.resources
+F:\c#\kwMusic\obj\Debug\kwMusic.Properties.Resources.resources
+F:\c#\kwMusic\obj\Debug\kwMusic.csproj.GenerateResource.cache
+F:\c#\kwMusic\obj\Debug\kwMusic.csproj.CoreCompileInputs.cache
+F:\c#\kwMusic\obj\Debug\kwMusic.exe
+F:\c#\kwMusic\obj\Debug\kwMusic.pdb
+F:\c#\kwMusic\bin\Debug\Interop.WMPLib.dll
+F:\c#\kwMusic\bin\Debug\AxInterop.WMPLib.dll
+F:\c#\kwMusic\obj\Debug\Interop.WMPLib.dll
+F:\c#\kwMusic\obj\Debug\AxInterop.WMPLib.dll
+F:\c#\kwMusic\obj\Debug\kwMusic.csproj.ResolveComReference.cache

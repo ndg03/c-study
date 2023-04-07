@@ -1,0 +1,11 @@
+F:\c#\ppt\bin\Debug\ppt.exe.config
+F:\c#\ppt\bin\Debug\ppt.exe
+F:\c#\ppt\bin\Debug\ppt.pdb
+F:\c#\ppt\obj\Debug\ppt.csproj.AssemblyReference.cache
+F:\c#\ppt\obj\Debug\ppt.csproj.SuggestedBindingRedirects.cache
+F:\c#\ppt\obj\Debug\ppt.Form1.resources
+F:\c#\ppt\obj\Debug\ppt.Properties.Resources.resources
+F:\c#\ppt\obj\Debug\ppt.csproj.GenerateResource.cache
+F:\c#\ppt\obj\Debug\ppt.csproj.CoreCompileInputs.cache
+F:\c#\ppt\obj\Debug\ppt.exe
+F:\c#\ppt\obj\Debug\ppt.pdb
