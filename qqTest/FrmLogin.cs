@@ -28,7 +28,8 @@ namespace qqTest
             }
             else
             {
-                //Console.WriteLine("账号或者密码输入错误！请重新输入！");
+                MessageBox.Show("账号或者密码输入错误！请重新输入！");
+                MessageBox.Show("ndg   123");
             }
         }
 

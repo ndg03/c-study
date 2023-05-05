@@ -38,8 +38,8 @@
             this.lblExit = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblLyrics = new System.Windows.Forms.Label();
-            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.palPlay.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLast)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picNext)).BeginInit();
@@ -53,19 +53,22 @@
             this.palPlay.Controls.Add(this.lblTime);
             this.palPlay.Controls.Add(this.picLast);
             this.palPlay.Controls.Add(this.picNext);
+            this.palPlay.Controls.Add(this.lblLyrics);
             this.palPlay.Controls.Add(this.picPlay);
-            this.palPlay.Location = new System.Drawing.Point(-1, 300);
+            this.palPlay.Location = new System.Drawing.Point(-1, 375);
+            this.palPlay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.palPlay.Name = "palPlay";
-            this.palPlay.Size = new System.Drawing.Size(643, 62);
+            this.palPlay.Size = new System.Drawing.Size(857, 78);
             this.palPlay.TabIndex = 0;
             // 
             // lblTime
             // 
             this.lblTime.AllowDrop = true;
             this.lblTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(141)))), ((int)(((byte)(202)))));
-            this.lblTime.Location = new System.Drawing.Point(562, 36);
+            this.lblTime.Location = new System.Drawing.Point(749, 45);
+            this.lblTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(79, 23);
+            this.lblTime.Size = new System.Drawing.Size(105, 29);
             this.lblTime.TabIndex = 2;
             this.lblTime.Text = "time";
             this.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -75,9 +78,10 @@
             this.picLast.BackColor = System.Drawing.Color.Transparent;
             this.picLast.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picLast.BackgroundImage")));
             this.picLast.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picLast.Location = new System.Drawing.Point(31, 19);
+            this.picLast.Location = new System.Drawing.Point(41, 24);
+            this.picLast.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picLast.Name = "picLast";
-            this.picLast.Size = new System.Drawing.Size(24, 24);
+            this.picLast.Size = new System.Drawing.Size(32, 30);
             this.picLast.TabIndex = 1;
             this.picLast.TabStop = false;
             // 
@@ -86,9 +90,10 @@
             this.picNext.BackColor = System.Drawing.Color.Transparent;
             this.picNext.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picNext.BackgroundImage")));
             this.picNext.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picNext.Location = new System.Drawing.Point(103, 18);
+            this.picNext.Location = new System.Drawing.Point(137, 22);
+            this.picNext.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picNext.Name = "picNext";
-            this.picNext.Size = new System.Drawing.Size(24, 24);
+            this.picNext.Size = new System.Drawing.Size(32, 30);
             this.picNext.TabIndex = 1;
             this.picNext.TabStop = false;
             // 
@@ -97,9 +102,10 @@
             this.picPlay.BackColor = System.Drawing.Color.Transparent;
             this.picPlay.BackgroundImage = global::kwMusic.Properties.Resources.pause;
             this.picPlay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picPlay.Location = new System.Drawing.Point(61, 12);
+            this.picPlay.Location = new System.Drawing.Point(81, 15);
+            this.picPlay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picPlay.Name = "picPlay";
-            this.picPlay.Size = new System.Drawing.Size(36, 36);
+            this.picPlay.Size = new System.Drawing.Size(48, 45);
             this.picPlay.TabIndex = 1;
             this.picPlay.TabStop = false;
             this.picPlay.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -109,9 +115,10 @@
             this.lblExit.AutoSize = true;
             this.lblExit.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblExit.ForeColor = System.Drawing.Color.Red;
-            this.lblExit.Location = new System.Drawing.Point(617, 0);
+            this.lblExit.Location = new System.Drawing.Point(823, 0);
+            this.lblExit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblExit.Name = "lblExit";
-            this.lblExit.Size = new System.Drawing.Size(23, 16);
+            this.lblExit.Size = new System.Drawing.Size(29, 20);
             this.lblExit.TabIndex = 1;
             this.lblExit.Text = "×";
             this.lblExit.Click += new System.EventHandler(this.lblExit_Click);
@@ -122,46 +129,51 @@
             // 
             // lblLyrics
             // 
-            this.lblLyrics.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(141)))), ((int)(((byte)(202)))));
-            this.lblLyrics.Location = new System.Drawing.Point(-3, 100);
+            this.lblLyrics.BackColor = System.Drawing.Color.Transparent;
+            this.lblLyrics.Font = new System.Drawing.Font("华文行楷", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblLyrics.ForeColor = System.Drawing.Color.Black;
+            this.lblLyrics.Location = new System.Drawing.Point(298, 12);
+            this.lblLyrics.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLyrics.Name = "lblLyrics";
-            this.lblLyrics.Size = new System.Drawing.Size(198, 38);
+            this.lblLyrics.Size = new System.Drawing.Size(264, 48);
             this.lblLyrics.TabIndex = 3;
             this.lblLyrics.Text = "Lyrics";
             this.lblLyrics.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 15;
+            this.listBox1.Location = new System.Drawing.Point(631, 92);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(159, 109);
+            this.listBox1.TabIndex = 4;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // axWindowsMediaPlayer1
             // 
             this.axWindowsMediaPlayer1.Enabled = true;
             this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(0, 210);
+            this.axWindowsMediaPlayer1.Margin = new System.Windows.Forms.Padding(4);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
             this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(157, 91);
             this.axWindowsMediaPlayer1.TabIndex = 2;
             // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 12;
-            this.listBox1.Location = new System.Drawing.Point(473, 74);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 88);
-            this.listBox1.TabIndex = 4;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
-            // 
             // frmBackGround
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(640, 360);
+            this.ClientSize = new System.Drawing.Size(853, 450);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.axWindowsMediaPlayer1);
             this.Controls.Add(this.lblExit);
-            this.Controls.Add(this.lblLyrics);
             this.Controls.Add(this.palPlay);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmBackGround";
             this.Load += new System.EventHandler(this.frmBackGround_Load);
             this.palPlay.ResumeLayout(false);

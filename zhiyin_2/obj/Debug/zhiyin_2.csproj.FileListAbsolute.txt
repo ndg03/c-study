@@ -1,0 +1,10 @@
+F:\c#\zhiyin_2\bin\Debug\zhiyin_2.exe.config
+F:\c#\zhiyin_2\bin\Debug\zhiyin_2.exe
+F:\c#\zhiyin_2\bin\Debug\zhiyin_2.pdb
+F:\c#\zhiyin_2\obj\Debug\zhiyin_2.csproj.AssemblyReference.cache
+F:\c#\zhiyin_2\obj\Debug\zhiyin_2.csproj.SuggestedBindingRedirects.cache
+F:\c#\zhiyin_2\obj\Debug\zhiyin_2.Properties.Resources.resources
+F:\c#\zhiyin_2\obj\Debug\zhiyin_2.csproj.GenerateResource.cache
+F:\c#\zhiyin_2\obj\Debug\zhiyin_2.csproj.CoreCompileInputs.cache
+F:\c#\zhiyin_2\obj\Debug\zhiyin_2.exe
+F:\c#\zhiyin_2\obj\Debug\zhiyin_2.pdb

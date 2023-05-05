@@ -8,10 +8,10 @@ namespace RayTrace
 {
     internal class ViewPlan
     {
-        Point3D leftTopLoc;
-        double w;
-        double h;
-        int resX;  //宽度分辨率
-        int resY;  //高度分辨率
+        public Point3D leftTopLoc;
+        public double w;
+        public double h;
+        public int resW;  //宽度分辨率
+        public int resH;  //高度分辨率
     }
 }

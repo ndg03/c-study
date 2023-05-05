@@ -48,7 +48,7 @@ namespace Generatingtopic
                     operater = "/";
                     if (opRight == 0)
                     {
-                        opRight = rnd.Next(10);
+                        opRight = rnd.Next(1,10);
                     }
                     result = opLeft * 1.0 / opRight;
                     result = Math.Round(result, 2);

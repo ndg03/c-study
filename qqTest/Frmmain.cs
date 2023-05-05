@@ -15,7 +15,7 @@ namespace qqTest
         public main_1()
         {
             InitializeComponent();
-            //Console.WriteLine("账号或者密码输入错误，请重新输入！");
+         
         }
     }
 }

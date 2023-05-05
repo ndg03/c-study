@@ -1,0 +1,11 @@
+F:\c#\Zy_Zy\bin\Debug\Zy_Zy.exe.config
+F:\c#\Zy_Zy\bin\Debug\Zy_Zy.exe
+F:\c#\Zy_Zy\bin\Debug\Zy_Zy.pdb
+F:\c#\Zy_Zy\obj\Debug\Zy_Zy.csproj.AssemblyReference.cache
+F:\c#\Zy_Zy\obj\Debug\Zy_Zy.csproj.SuggestedBindingRedirects.cache
+F:\c#\Zy_Zy\obj\Debug\Zy_Zy.Properties.Resources.resources
+F:\c#\Zy_Zy\obj\Debug\Zy_Zy.csproj.GenerateResource.cache
+F:\c#\Zy_Zy\obj\Debug\Zy_Zy.csproj.CoreCompileInputs.cache
+F:\c#\Zy_Zy\obj\Debug\Zy_Zy.exe
+F:\c#\Zy_Zy\obj\Debug\Zy_Zy.pdb
+F:\c#\Zy_Zy\obj\Debug\Zy_Zy.Form1.resources
