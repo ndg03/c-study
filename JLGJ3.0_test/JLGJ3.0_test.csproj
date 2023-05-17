@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{88863647-CF1B-4B98-88DA-680CBA24F705}</ProjectGuid>
+    <ProjectGuid>{457B0142-18AB-47FC-BC8A-EDA9C600D45F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>zhiyin_2</RootNamespace>
-    <AssemblyName>zhiyin_2</AssemblyName>
+    <RootNamespace>JLGJ3._0_test</RootNamespace>
+    <AssemblyName>JLGJ3.0_test</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

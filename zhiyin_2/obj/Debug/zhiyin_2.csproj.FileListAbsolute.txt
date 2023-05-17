@@ -8,3 +8,14 @@ F:\c#\zhiyin_2\obj\Debug\zhiyin_2.csproj.GenerateResource.cache
 F:\c#\zhiyin_2\obj\Debug\zhiyin_2.csproj.CoreCompileInputs.cache
 F:\c#\zhiyin_2\obj\Debug\zhiyin_2.exe
 F:\c#\zhiyin_2\obj\Debug\zhiyin_2.pdb
+D:\c#\zhiyin_2\bin\Debug\zhiyin_2.exe.config
+D:\c#\zhiyin_2\bin\Debug\zhiyin_2.exe
+D:\c#\zhiyin_2\bin\Debug\zhiyin_2.pdb
+D:\c#\zhiyin_2\obj\Debug\zhiyin_2.csproj.AssemblyReference.cache
+D:\c#\zhiyin_2\obj\Debug\zhiyin_2.csproj.SuggestedBindingRedirects.cache
+D:\c#\zhiyin_2\obj\Debug\zhiyin_2.Properties.Resources.resources
+D:\c#\zhiyin_2\obj\Debug\zhiyin_2.csproj.GenerateResource.cache
+D:\c#\zhiyin_2\obj\Debug\zhiyin_2.csproj.CoreCompileInputs.cache
+D:\c#\zhiyin_2\obj\Debug\zhiyin_2.exe
+D:\c#\zhiyin_2\obj\Debug\zhiyin_2.pdb
+D:\c#\zhiyin_2\obj\Debug\zhiyin_2.Form1.resources

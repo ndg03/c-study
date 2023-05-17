@@ -9,3 +9,14 @@ F:\c#\Zy_Zy\obj\Debug\Zy_Zy.csproj.CoreCompileInputs.cache
 F:\c#\Zy_Zy\obj\Debug\Zy_Zy.exe
 F:\c#\Zy_Zy\obj\Debug\Zy_Zy.pdb
 F:\c#\Zy_Zy\obj\Debug\Zy_Zy.Form1.resources
+D:\c#\Zy_Zy\bin\Debug\Zy_Zy.exe.config
+D:\c#\Zy_Zy\bin\Debug\Zy_Zy.exe
+D:\c#\Zy_Zy\bin\Debug\Zy_Zy.pdb
+D:\c#\Zy_Zy\obj\Debug\Zy_Zy.csproj.AssemblyReference.cache
+D:\c#\Zy_Zy\obj\Debug\Zy_Zy.csproj.SuggestedBindingRedirects.cache
+D:\c#\Zy_Zy\obj\Debug\Zy_Zy.Form1.resources
+D:\c#\Zy_Zy\obj\Debug\Zy_Zy.Properties.Resources.resources
+D:\c#\Zy_Zy\obj\Debug\Zy_Zy.csproj.GenerateResource.cache
+D:\c#\Zy_Zy\obj\Debug\Zy_Zy.csproj.CoreCompileInputs.cache
+D:\c#\Zy_Zy\obj\Debug\Zy_Zy.exe
+D:\c#\Zy_Zy\obj\Debug\Zy_Zy.pdb

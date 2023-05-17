@@ -13,81 +13,101 @@ namespace zhiyin_2
     public partial class Form1 : Form
     {
         // 五张图片的文件名
-        private string[] imageFiles = { "1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg" };
-
+        private static string[] imageFiles = { "1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg" };
+        Button[] buttons = new Button[imageFiles.Length];
         public Form1()
         {
             InitializeComponent();
-            Button[] buttons = new Button[imageFiles.Length];
+
+            Random random = new Random();
+            
             // 创建按钮数组
             for (int i = 0; i < imageFiles.Length; i++)
             {
                 buttons[i] = new Button();  // 创建按钮实例
+                // 生成随机的横坐标和纵坐标
+                int x = random.Next(0, this.Width - buttons[i].Width);
+                int y = random.Next(0, this.Height - buttons[i].Height);
+
+                
+
                 buttons[i].Size = new Size(100, 100);
-                buttons[i].Location = new Point(10 + i * 50, 10);
+                buttons[i].Location = new Point(x, y);
                 buttons[i].BackgroundImage = Image.FromFile(imageFiles[i]);
                 buttons[i].BackgroundImageLayout = ImageLayout.Stretch;
                 buttons[i].Click += new EventHandler(button_Click);
                 Controls.Add(buttons[i]);
+                //将按钮设置为  无边框
+                buttons[i].FlatStyle = FlatStyle.Flat;
+                buttons[i].FlatAppearance.BorderSize = 0;
 
-                // 将新创建的按钮置于顶层
-                buttons[i].BringToFront();
+                buttons[i].SendToBack();  // 将 button2 带到最顶层
             }
-        }
+            for (int i = 0; i < imageFiles.Length; i++)
+            {
+                Controls.SetChildIndex(buttons[i], i); // 将 button1 设置为父容器的第一个子控件
+            }
 
-        private int[] GetOverlappingButtons(Button button)
-        {
-            List<int> overlappingButtonIndices = new List<int>();
-            for (int i = 0; i < this.Controls.Count; i++)
-            {
-                Control control = this.Controls[i];
-                if (control != button && control.Bounds.IntersectsWith(button.Bounds) && control is Button)
-                {
-                    overlappingButtonIndices.Add(i);
-                }
-            }
-            return overlappingButtonIndices.ToArray();
+
+
+            CompareButtons(buttons[1], buttons[2]);
+
+
+
+
         }
-        private int[] GetOverlappingButtonIndices(Button button)
+        /// <summary>
+        /// 判断两个按钮是否重叠
+        /// </summary>
+        /// <param name="button1"></param>
+        /// <param name="button2"></param>
+        /// <returns>是否</returns>
+        bool IsOverlap(Button button1, Button button2)
         {
-            List<int> overlappingIndices = new List<int>();
-            foreach (Control control in this.Controls)
-            {
-                if (control != button && control.Bounds.IntersectsWith(button.Bounds) && control is Button)
-                {
-                    overlappingIndices.Add(this.Controls.GetChildIndex(control));
-                }
-            }
-            return overlappingIndices.ToArray();
-        }
-        private bool IsTopButton(Button button)
-        {
-            int buttonIndex = this.Controls.GetChildIndex(button);
-            int[] overlappingIndices = GetOverlappingButtonIndices(button);
-            foreach (int index in overlappingIndices)
-            {
-                if (index >= buttonIndex)
-                {
-                    return false;
-                }
-            }
-            return true;
+            Rectangle rect1 = new Rectangle(button1.Location, button1.Size);
+            Rectangle rect2 = new Rectangle(button2.Location, button2.Size);
+
+            return rect1.IntersectsWith(rect2);
         }
 
-        private void button_Click(object sender, EventArgs e)
+        void button_Click(object sender, EventArgs e)
         {
-            if (IsTopButton((Button)sender))
+            /*Button clickedButton = (Button)sender; // 将触发事件的按钮转换为 Button 类型
+            int index = Controls.GetChildIndex(clickedButton);
+            MessageBox.Show(index.ToString());*/
+
+
+            Button clickedButton = (Button)sender; // 获取触发事件的按钮实例
+            int index = Array.IndexOf(buttons, clickedButton); // 查找按钮在 buttons 数组中的索引
+            MessageBox.Show("按钮索引: " + index);
+
+        }
+
+        void CompareButtons(Button button1, Button button2)
+        {
+            if (button1.Bounds.IntersectsWith(button2.Bounds))
             {
-                // 如果按钮位于顶层，则执行相应操作
-                // 在这里编写按钮单击事件的逻辑代码
-                MessageBox.Show("你干嘛");
+                int zIndex1 = Controls.GetChildIndex(button1);
+                int zIndex2 = Controls.GetChildIndex(button2);
+
+                if (zIndex1 > zIndex2)
+                {
+                    MessageBox.Show("按钮1在上层");
+                }
+                else if (zIndex1 < zIndex2)
+                {
+                    MessageBox.Show("按钮2在上层");
+                }
+                else
+                {
+                    MessageBox.Show("按钮1和按钮2在同一层级");
+                }
             }
             else
             {
-                // 如果按钮不位于顶层，则不执行操作
-                MessageBox.Show("哎哟");
+                MessageBox.Show("按钮1和按钮2没有重叠");
             }
-            
         }
+
     }
 }

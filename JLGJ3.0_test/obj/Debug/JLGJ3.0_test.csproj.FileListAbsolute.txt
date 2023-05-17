@@ -1,0 +1,11 @@
+D:\c#\JLGJ3.0_test\bin\Debug\JLGJ3.0_test.exe.config
+D:\c#\JLGJ3.0_test\bin\Debug\JLGJ3.0_test.exe
+D:\c#\JLGJ3.0_test\bin\Debug\JLGJ3.0_test.pdb
+D:\c#\JLGJ3.0_test\obj\Debug\JLGJ3.0_test.csproj.AssemblyReference.cache
+D:\c#\JLGJ3.0_test\obj\Debug\JLGJ3.0_test.csproj.SuggestedBindingRedirects.cache
+D:\c#\JLGJ3.0_test\obj\Debug\JLGJ3._0_test.Properties.Resources.resources
+D:\c#\JLGJ3.0_test\obj\Debug\JLGJ3.0_test.csproj.GenerateResource.cache
+D:\c#\JLGJ3.0_test\obj\Debug\JLGJ3.0_test.csproj.CoreCompileInputs.cache
+D:\c#\JLGJ3.0_test\obj\Debug\JLGJ3.0_test.exe
+D:\c#\JLGJ3.0_test\obj\Debug\JLGJ3.0_test.pdb
+D:\c#\JLGJ3.0_test\obj\Debug\JLGJ3._0_test.Form1.resources
