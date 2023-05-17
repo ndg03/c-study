@@ -153,6 +153,8 @@ namespace JLGJ3._0_test
         {
             ShowButton();
             LoadButton();
+            //刷新
+            this.Invalidate();
         }
         //将 button添加到  form里面
         public void LoadButton()
@@ -224,7 +226,8 @@ namespace JLGJ3._0_test
 
             if (button1.Contains(clickedButton)  && IsClick(clickedButton,buttonOverLaped1))
             {
-                MessageBox.Show("属于第一个链表的按钮被点击了！");
+                move(clickedButton);
+                //MessageBox.Show("属于第一个链表的按钮被点击了！");
             }
             else if (button2.Contains(clickedButton) && IsClick(clickedButton, buttonOverLaped1))
             {
@@ -344,6 +347,50 @@ namespace JLGJ3._0_test
             {
                 return 0;
             }
+        }
+
+        private void Form1_Paint(object sender, PaintEventArgs e)
+        {
+            draw();
+        }
+        //矩形的 位置 初始值
+        public int rectX =0;
+        public int rectY =0;
+        //画出  下面矩形的方法
+        void draw()
+        {
+            int rectWidth = 800;  // 矩形宽度
+            int rectHeight = 130; // 矩形高度
+
+            // 计算矩形的位置，使其居中于窗体底部
+            rectX = (ClientSize.Width - rectWidth) / 2;
+            rectY = ClientSize.Height - rectHeight - 3;
+
+            Rectangle rect = new Rectangle(rectX, rectY, rectWidth, rectHeight);
+
+            using (Graphics g = CreateGraphics())
+            {
+                Pen pen = new Pen(Color.Yellow, 5);  // 创建黄色边框的 Pen 对象
+                g.DrawRectangle(pen, rect);
+                pen.Dispose();  // 绘制完成后释放 Pen 对象
+            }
+        }
+
+        /// <summary>
+        /// 定义下一个按钮的位置
+        /// </summary>
+        /// <param name="n">下一个按钮 是第几个</param>
+        /// <returns></returns>
+        public Point NextPoint(int n)
+        {
+            Point point = new Point(109 + n * 112,445);
+            return point;
+        }
+        int t = 0;//初始化按钮个数
+        //定义 方法 移动 按钮
+        public void move(Button button)
+        {
+            button.Location = NextPoint(t++ % 7);
         }
     }
 }
