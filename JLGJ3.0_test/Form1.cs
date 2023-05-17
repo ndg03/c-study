@@ -175,7 +175,7 @@ namespace JLGJ3._0_test
         private void SetRandomButtonPosition(Button button)
         {
             int x = random.Next(ClientSize.Width - button.Width);
-            int y = random.Next(ClientSize.Height - button.Height);
+            int y = random.Next(ClientSize.Height -150 - button.Height);
             button.Location = new Point(x, y);
         }
 
@@ -222,15 +222,15 @@ namespace JLGJ3._0_test
             buttonOverLaped1 = IsOverLap(clickedButton);
 
 
-            if (button1.Contains(clickedButton))
+            if (button1.Contains(clickedButton)  && IsClick(clickedButton,buttonOverLaped1))
             {
                 MessageBox.Show("属于第一个链表的按钮被点击了！");
             }
-            else if (button2.Contains(clickedButton))
+            else if (button2.Contains(clickedButton) && IsClick(clickedButton, buttonOverLaped1))
             {
                 MessageBox.Show("属于第2个链表的按钮被点击了！");
             }
-            else
+            else if (button3.Contains(clickedButton) && IsClick(clickedButton, buttonOverLaped1))
             {
                 MessageBox.Show("属于第3个链表的按钮被点击了！");
             }
@@ -260,7 +260,7 @@ namespace JLGJ3._0_test
                     Button surroundingButton = buttonList[i];
                     // 对周围按钮进行操作
                     Rectangle surroundingButtonRect = new Rectangle(surroundingButton.Left, surroundingButton.Top, surroundingButton.Width, surroundingButton.Height);
-                    if (buttonRect.IntersectsWith(surroundingButtonRect))
+                    if (buttonRect.IntersectsWith(surroundingButtonRect) && buttonRect != surroundingButtonRect)//不包括被点击的按钮
                     {
                         //表示重叠了
                         buttonOverLaped2.Add(surroundingButton);
@@ -270,17 +270,60 @@ namespace JLGJ3._0_test
             }
             return buttonOverLaped2;
         }
-
-        //没有重叠的  则  可以点击
-        // 有重叠的  则  判断  层级关系   如果是顶层  ，则可以点击 ，如果不是  ，则 不能点击
+        /// <summary>
+        /// 判断 是否能点击 ，没有重叠的  或者 在顶层  的 可以点击
+        /// </summary>
+        /// <param name="button">被点击的按钮</param>
+        /// <param name="list">重叠的 按钮 链表</param>
+        /// <returns>是否</returns>
         public Boolean IsClick(Button button ,List<Button> list)
         {
             //被点击按钮的层级关系
             int ClickedFloor = IsWhichFloor(button);
             //重叠的按钮的层级关系
-            int[] floor;
+            int[] floor = new int[2];//设定最高2层
+            int i = 0;// 数组 索引
             //遍历链表 ，求得层级关系，保存在数组里边
-            return true;
+            foreach(Button btn in list)
+            {
+                if (button1.Contains(btn))
+                {
+                    floor[i%2] = 1;
+                    i++;
+                }else if (button2.Contains(btn))
+                {
+                    floor[i%2] = 2;
+                    i++;
+                }else if (button3.Contains(btn))
+                {
+                    floor[i % 2] = 3;
+                    i++;
+                }
+            }
+
+            if(ClickedFloor == 1  || list == null)
+            {
+                return true;
+            }
+            else
+            {
+                for (int j = 0; j < 2; j++)
+                {
+                    if (floor[j] == 1)
+                    {
+                        return false;
+                    }
+                }
+
+                if (ClickedFloor == 2)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
         }
         //判断按钮的层级关系
         public int IsWhichFloor(Button button)
