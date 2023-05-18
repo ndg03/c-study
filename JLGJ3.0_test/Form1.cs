@@ -148,6 +148,8 @@ namespace JLGJ3._0_test
             }
         }
 
+
+
         // 随机选择一张图片文件路径
         private string GetRandomImageFile()
         {
@@ -238,11 +240,12 @@ namespace JLGJ3._0_test
 
                 move(clickedButton);
                 addList(clickedButton);
-                showNum(clickedButton);
+                //showNum(clickedButton);
                 removeButton();
                 this.Invalidate();
             }
         }
+        //用于 调试 代码
         void showNum( Button button)
         {
             if(WhichKun(button) == 1)
@@ -306,11 +309,11 @@ namespace JLGJ3._0_test
         /// <returns>是否</returns>
         public bool IsClick(Button button ,List<Button> list)
         {
-            MessageBox.Show(list.Count.ToString());
+            //MessageBox.Show(list.Count.ToString());
             //被点击按钮的层级关系
             int ClickedFloor = IsWhichFloor(button);
             //重叠的按钮的层级关系
-            int[] floor = new int[2];//设定最高2层
+            int[] floor = new int[10];//设定最高10层
             int i = 0;// 数组 索引
 
             //遍历链表 ，求得层级关系，保存在数组里边
@@ -318,17 +321,21 @@ namespace JLGJ3._0_test
             {
                 if (button1.Contains(btn))
                 {
-                    floor[i%2] = 1;
+                    floor[i%10] = 1;
                     i++;
                 }else if (button2.Contains(btn))
                 {
-                    floor[i%2] = 2;
+                    floor[i%10] = 2;
                     i++;
                 }else if (button3.Contains(btn))
                 {
-                    floor[i % 2] = 3;
+                    floor[i % 10] = 3;
                     i++;
                 }
+            }
+            if(button.Location.Y == 445)
+            {
+                return false;
             }
             //被点击的按钮的层级关系  == 1  或者  被点击的按钮周围没有重叠的按钮
             if(ClickedFloor == 1  || list.Count == 0)
@@ -337,7 +344,7 @@ namespace JLGJ3._0_test
             }
             else
             {
-                for (int j = 0; j < 2; j++)
+                for (int j = 0; j < 10; j++)
                 {
                     if (floor[j] == 1)
                     {
