@@ -28,6 +28,8 @@ namespace JLGJ3._0_test
 
         // 定义一个链表  用来  存  被重叠的按钮
         List<Button> buttonOverLaped1;
+
+
         /// <summary>
         /// 装的方法 ,从第一个开始（最上层）
         /// </summary>
@@ -37,10 +39,14 @@ namespace JLGJ3._0_test
             buttonLists.Add(button2);
             buttonLists.Add(button3);
         }
+
+
         //随机数生成器
         private Random random = new Random();
         //图片路径
         public string[] imageFiles = { "1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg" };
+
+
         // 随机生成button，背景是随机图片
         public void ShowButton()
         {
@@ -65,7 +71,7 @@ namespace JLGJ3._0_test
 
                 // 随机选择一张图片
                 string randomImageFile = GetRandomImageFile();
-
+                button.Tag = randomImageFile;
                 // 设置按钮的背景图片
                 button.BackgroundImage = Image.FromFile(randomImageFile);
                 button.BackgroundImageLayout = ImageLayout.Stretch;
@@ -97,7 +103,7 @@ namespace JLGJ3._0_test
 
                 // 随机选择一张图片
                 string randomImageFile = GetRandomImageFile();
-
+                button.Tag = randomImageFile;
                 // 设置按钮的背景图片
                 button.BackgroundImage = Image.FromFile(randomImageFile);
                 button.BackgroundImageLayout = ImageLayout.Stretch;
@@ -130,7 +136,7 @@ namespace JLGJ3._0_test
 
                 // 随机选择一张图片
                 string randomImageFile = GetRandomImageFile();
-
+                button.Tag = randomImageFile;
                 // 设置按钮的背景图片
                 button.BackgroundImage = Image.FromFile(randomImageFile);
                 button.BackgroundImageLayout = ImageLayout.Stretch;
@@ -149,6 +155,8 @@ namespace JLGJ3._0_test
             return imageFiles[index];
         }
 
+
+
         private void Form1_Load(object sender, EventArgs e)
         {
             ShowButton();
@@ -156,23 +164,23 @@ namespace JLGJ3._0_test
             //刷新
             this.Invalidate();
         }
+
+
         //将 button添加到  form里面
         public void LoadButton()
         {
-            foreach (Button button in button1)
+            Contain();
+            foreach(List<Button> buttonList in buttonLists)
             {
-                Controls.Add(button);
+                foreach (Button button in buttonList)
+                {
+                    Controls.Add(button);
+                }
             }
-            foreach (Button button in button2)
-            {
-                Controls.Add(button);
-            }
-            foreach (Button button in button3)
-            {
-                Controls.Add(button);
-            }
-
         }
+
+
+
         //设置按钮的随机位置
         private void SetRandomButtonPosition(Button button)
         {
@@ -217,28 +225,46 @@ namespace JLGJ3._0_test
             }
             return false;
         }
+
         //按钮点击事件
         void button_Click(object sender, EventArgs e)
         {
             Button clickedButton = (Button)sender;
             buttonOverLaped1 = IsOverLap(clickedButton);
-
-
-            if (button1.Contains(clickedButton)  && IsClick(clickedButton,buttonOverLaped1))
+            //如果可以点击 ，则移动，达到三个则删除
+            if (IsClick(clickedButton, buttonOverLaped1))
             {
+                
+
                 move(clickedButton);
-                //MessageBox.Show("属于第一个链表的按钮被点击了！");
-            }
-            else if (button2.Contains(clickedButton) && IsClick(clickedButton, buttonOverLaped1))
-            {
-                MessageBox.Show("属于第2个链表的按钮被点击了！");
-            }
-            else if (button3.Contains(clickedButton) && IsClick(clickedButton, buttonOverLaped1))
-            {
-                MessageBox.Show("属于第3个链表的按钮被点击了！");
+                addList(clickedButton);
+                showNum(clickedButton);
+                removeButton();
+                this.Invalidate();
             }
         }
-
+        void showNum( Button button)
+        {
+            if(WhichKun(button) == 1)
+            {
+                MessageBox.Show("第一种图片的个数是"+button_1.Count.ToString());
+            }
+            else if (WhichKun(button) == 2)
+            {
+                MessageBox.Show("第2种图片的个数是" + button_2.Count.ToString());
+            }
+            else if (WhichKun(button) == 3)
+            {
+                MessageBox.Show("第3种图片的个数是" + button_3.Count.ToString());
+            }
+            else if (WhichKun(button) == 4)
+            {
+                MessageBox.Show("第4种图片的个数是" + button_4.Count.ToString());
+            }else if (WhichKun(button) == 5)
+            {
+                MessageBox.Show("第5种图片的个数是" + button_5.Count.ToString());
+            }
+        }
 
 
         /// <summary>
@@ -248,27 +274,26 @@ namespace JLGJ3._0_test
         /// <returns>返回重叠的按钮集合</returns>
         public List<Button> IsOverLap(Button button)
         {
-            //通过其矩形边界来表示
-            // 假设被点击按钮
+            //通过其矩形边界来表示 假设被点击按钮
             Rectangle buttonRect = new Rectangle(button.Left, button.Top, button.Width, button.Height);
-            //调用 方法 方便 遍历所有的按钮
-            Contain();
-            //定义标志位 是否有重叠的
+            //定义链表  用来装  与被点击的按钮重叠的按钮
             List<Button> buttonOverLaped2 = new List<Button>();
-            // 嵌套的 for 循环遍历所有的按钮（从最上层开始）
+
+            // 增强 for 循环  嵌套 遍历所有的按钮（从最上层开始）
             foreach (List<Button> buttonList in buttonLists)
             {
                 for (int i = 0; i < buttonList.Count; i++)
                 {
+                    //定义周围的按钮
                     Button surroundingButton = buttonList[i];
-                    // 对周围按钮进行操作
+                    // 转化为矩形 
                     Rectangle surroundingButtonRect = new Rectangle(surroundingButton.Left, surroundingButton.Top, surroundingButton.Width, surroundingButton.Height);
-                    if (buttonRect.IntersectsWith(surroundingButtonRect) && buttonRect != surroundingButtonRect)//不包括被点击的按钮
+                    //进行重叠判断 不包括被点击的按钮
+                    if (buttonRect.IntersectsWith(surroundingButtonRect) && buttonRect != surroundingButtonRect)
                     {
-                        //表示重叠了
+                        //重叠按钮添加到 重叠链表，不包括 被点击的按钮
                         buttonOverLaped2.Add(surroundingButton);
                     }
-
                 }
             }
             return buttonOverLaped2;
@@ -279,13 +304,15 @@ namespace JLGJ3._0_test
         /// <param name="button">被点击的按钮</param>
         /// <param name="list">重叠的 按钮 链表</param>
         /// <returns>是否</returns>
-        public Boolean IsClick(Button button ,List<Button> list)
+        public bool IsClick(Button button ,List<Button> list)
         {
+            MessageBox.Show(list.Count.ToString());
             //被点击按钮的层级关系
             int ClickedFloor = IsWhichFloor(button);
             //重叠的按钮的层级关系
             int[] floor = new int[2];//设定最高2层
             int i = 0;// 数组 索引
+
             //遍历链表 ，求得层级关系，保存在数组里边
             foreach(Button btn in list)
             {
@@ -303,8 +330,8 @@ namespace JLGJ3._0_test
                     i++;
                 }
             }
-
-            if(ClickedFloor == 1  || list == null)
+            //被点击的按钮的层级关系  == 1  或者  被点击的按钮周围没有重叠的按钮
+            if(ClickedFloor == 1  || list.Count == 0)
             {
                 return true;
             }
@@ -322,7 +349,10 @@ namespace JLGJ3._0_test
                 {
                     return true;
                 }
-                else
+                else if (ClickedFloor == 3 && list == null)
+                {
+                    return true;
+                }else
                 {
                     return false;
                 }
@@ -391,6 +421,186 @@ namespace JLGJ3._0_test
         public void move(Button button)
         {
             button.Location = NextPoint(t++ % 7);
+        }
+
+        //判断 被点击的按钮的背景是  哪种kun
+        public int WhichKun(Button button)
+        {
+            //表示背景  的序列号
+            int backNum = 0;
+
+            //将背景转化为字符串  进行比较
+            if (button.Tag.ToString()==imageFiles[0].ToString())
+            {
+                backNum = 1;
+            }
+            else if (button.Tag.ToString() == imageFiles[1].ToString())
+            {
+                backNum = 2;
+            }else if(button.Tag.ToString() == imageFiles[2].ToString())
+            {
+                backNum = 3;
+            }else if (button.Tag.ToString() == imageFiles[3].ToString())
+            {
+                backNum = 4;
+            }else if(button.Tag.ToString() == imageFiles[4].ToString())
+            {
+                backNum = 5;
+            }
+            return backNum;
+        }
+
+        //定义 链表  用来装 每种 图片 的 具体按钮
+        static List<Button> button_1 = new List<Button>();
+        static List<Button> button_2 = new List<Button>();
+        static List<Button> button_3 = new List<Button>();
+        static List<Button> button_4 = new List<Button>();
+        static List<Button> button_5 = new List<Button>();
+
+
+        /// <summary>
+        /// /被点击的按钮的 计数（添加到链表中）  的方法
+        /// </summary>
+        /// <param name="button">被点击的按钮</param>
+        /// <returns></returns>
+        public List<Button>  addList (Button button)
+        {
+            if (WhichKun(button) == 1)
+            {
+                button_1.Add(button);
+                return button_1;
+            }else if(WhichKun(button) == 2)
+            { 
+                button_2.Add(button); 
+                return button_2;
+            }
+            else if(WhichKun(button) == 3)
+            {
+                button_3.Add(button); 
+                return button_3;
+            }
+            else if (WhichKun(button) == 4) 
+            {
+                button_4.Add(button);
+                return button_4;
+            }
+            else
+            {
+                button_5.Add(button);
+                return button_5;
+            }
+        }
+
+
+        /// <summary>
+        /// 删除 按钮的方法
+        /// </summary>
+        /// <param name="button">被点击的按钮</param>
+       public void removeButton()
+       {
+            if(button_1.Count == 3)
+            {
+                for (int i = 0; i < button_1.Count; i++)
+                {
+                    Button button = button_1[i];
+                    // 遍历窗体的 Controls 集合
+                    for (int j = Controls.Count - 1; j >= 0; j--)
+                    {
+                        Control control = Controls[j];
+
+                        // 检查控件类型是否为 Button
+                        if (control == button)
+                        {
+                            // 从窗体的 Controls 集合中移除按钮
+                            Controls.Remove(button);
+                            this.Invalidate();
+                        }
+                    }
+                }
+                button_1.Clear();
+            }
+            else if (button_2.Count  == 3)
+            {
+                for (int i = 0; i < button_2.Count; i++)
+                {
+                    Button button = button_2[i];
+                    // 遍历窗体的 Controls 集合
+                    for (int j = Controls.Count - 1; j >= 0; j--)
+                    {
+                        Control control = Controls[j];
+
+                        // 检查控件类型是否为 Button
+                        if (control == button)
+                        {
+                            // 从窗体的 Controls 集合中移除按钮
+                            Controls.Remove(button);
+                            this.Invalidate();
+                        }
+                    }
+                }
+                button_2.Clear();
+            }
+            else if (button_3.Count == 3)
+            {
+                for (int i = 0; i < button_3.Count; i++)
+                {
+                    Button button = button_3[i];
+                    // 遍历窗体的 Controls 集合
+                    for (int j = Controls.Count - 1; j >= 0; j--)
+                    {
+                        Control control = Controls[j];
+
+                        // 检查控件类型是否为 Button
+                        if (control == button)
+                        {
+                            // 从窗体的 Controls 集合中移除按钮
+                            Controls.Remove(button);
+                            this.Invalidate();
+                        }
+                    }
+                }
+                button_3.Clear();
+            }
+            else if (button_4.Count == 3)
+            {
+                for (int i = 0; i < button_4.Count; i++)
+                {
+                    Button button = button_4[i];
+                    // 遍历窗体的 Controls 集合
+                    for (int j = Controls.Count - 1; j >= 0; j--)
+                    {
+                        Control control = Controls[j];
+
+                        // 检查控件类型是否为 Button
+                        if (control == button)
+                        {
+                            // 从窗体的 Controls 集合中移除按钮
+                            Controls.Remove(button);
+                            this.Invalidate();
+                        }
+                    }
+                }
+                button_4.Clear();
+            }
+            else if (button_5.Count == 3)
+            {
+                for (int i = 0; i < button_5.Count; i++)
+                {
+                    Button button = button_5[i];
+                    // 遍历窗体的 Controls 集合
+                    for (int j = Controls.Count - 1; j >= 0; j--)
+                    {
+                        Control control = Controls[j];
+                        if (control == button)
+                        {
+                            // 从窗体的 Controls 集合中移除按钮
+                            Controls.Remove(button);
+                            this.Invalidate();
+                        }
+                    }
+                }
+                button_5.Clear();
+            }
         }
     }
 }
