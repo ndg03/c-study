@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows;
+using System.Security.Cryptography.X509Certificates;
 
 namespace JLGJ3._0_test
 {
@@ -18,6 +19,7 @@ namespace JLGJ3._0_test
             InitializeComponent();
         }
 
+        static int numFinal = 0;
 
         //定义三个链表用来装 分别表示三个层级关系
         List<Button> button1 = new List<Button>();
@@ -47,11 +49,38 @@ namespace JLGJ3._0_test
         public string[] imageFiles = { "1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg" };
 
 
+        //创建 随机位置的  按钮
+        public void createButton(List<Button> list)
+        {
+            // 创建按钮对象
+            Button button = new Button();
+            // 设置按钮属性
+            button.Width = 100;
+            button.Height = 100;
+            // 设置按钮随机位置
+            SetRandomButtonPosition(button);
+            // 检查按钮是否与已创建的按钮重叠
+            bool overlap = CheckButtonOverlap1(button);
+            // 如果按钮与已创建的按钮重叠，则重新设置随机位置
+            while (overlap)
+            {
+                SetRandomButtonPosition(button);
+                overlap = CheckButtonOverlap1(button);
+            }
+            button.BackgroundImage = list[list.Count - 1].BackgroundImage;
+            button.BackgroundImageLayout = ImageLayout.Stretch;
+            button.Tag = list[list.Count - 1].Tag;
+
+            // 将按钮添加到相应的链表中
+            list.Add(button);
+            button.Click += button_Click; // 关联点击事件处理程序
+        }
+
         // 随机生成button，背景是随机图片
         public void ShowButton()
         {
             //生成 button1的按钮
-            for(int i = 0; i< 8 ; i++)
+            for(int i = 0; i< 3 ; i++)
             {
                 // 创建按钮对象
                 Button button = new Button();
@@ -80,10 +109,12 @@ namespace JLGJ3._0_test
                 button1.Add(button);
 
                 button.Click += button_Click; // 关联点击事件处理程序
+                createButton(button1);
+                createButton(button1);
             }
 
             //生成 button2的按钮
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 3; i++)
             {
                 // 创建按钮对象
                 Button button = new Button();
@@ -112,11 +143,14 @@ namespace JLGJ3._0_test
                 button2.Add(button);
 
                 button.Click += button_Click; // 关联点击事件处理程序
+                createButton(button2);
+                createButton(button2);
+
             }
 
 
             //生成 button3的按钮
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 3; i++)
             {
                 // 创建按钮对象
                 Button button = new Button();
@@ -145,6 +179,8 @@ namespace JLGJ3._0_test
                 button3.Add(button);
 
                 button.Click += button_Click; // 关联点击事件处理程序
+                createButton(button3);
+                createButton(button3);
             }
         }
 
@@ -239,9 +275,12 @@ namespace JLGJ3._0_test
                 
 
                 move(clickedButton);
+                
                 addList(clickedButton);
                 //showNum(clickedButton);
                 removeButton();
+                victory();
+                defate(numFinal);
                 this.Invalidate();
             }
         }
@@ -314,6 +353,11 @@ namespace JLGJ3._0_test
             int ClickedFloor = IsWhichFloor(button);
             //重叠的按钮的层级关系
             int[] floor = new int[10];//设定最高10层
+            for(int m = 0;m <floor.Length; m++)
+            {
+                floor[m] = 10;
+            }
+
             int i = 0;// 数组 索引
 
             //遍历链表 ，求得层级关系，保存在数组里边
@@ -333,6 +377,7 @@ namespace JLGJ3._0_test
                     i++;
                 }
             }
+            //最下面 框 里的按钮不能点击
             if(button.Location.Y == 445)
             {
                 return false;
@@ -351,8 +396,26 @@ namespace JLGJ3._0_test
                         return false;
                     }
                 }
+                //定义标志位  ，如果 重叠的按钮 的层级关系  优先级  全部小于 被点击的按钮  ，则可以点击
+                int flag = 1;//表示  默认 全部 小于
+                for(int k = 0; k < floor.Length-1; k++)
+                {
+                    if (floor[k]  < ClickedFloor)
+                    {
+                        flag = 0;// 表示 存在 层级关系  优先级更高的  按钮 
+                    }
+                }
+                if(flag == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
 
-                if (ClickedFloor == 2)
+
+                /*if (ClickedFloor == 2)
                 {
                     return true;
                 }
@@ -362,7 +425,7 @@ namespace JLGJ3._0_test
                 }else
                 {
                     return false;
-                }
+                }*/
             }
         }
         //判断按钮的层级关系
@@ -427,7 +490,12 @@ namespace JLGJ3._0_test
         //定义 方法 移动 按钮
         public void move(Button button)
         {
+            t = numFinal;
             button.Location = NextPoint(t++ % 7);
+
+            numFinal++;// 方框中 的button 数加一
+
+            MessageBox.Show(numFinal.ToString());
         }
 
         //判断 被点击的按钮的背景是  哪种kun
@@ -520,6 +588,8 @@ namespace JLGJ3._0_test
                         {
                             // 从窗体的 Controls 集合中移除按钮
                             Controls.Remove(button);
+                            numFinal--;//删除一个 button 减一
+                            //MessageBox.Show(numFinal.ToString());
                             this.Invalidate();
                         }
                     }
@@ -541,6 +611,8 @@ namespace JLGJ3._0_test
                         {
                             // 从窗体的 Controls 集合中移除按钮
                             Controls.Remove(button);
+                            numFinal--;//删除一个 button 减一
+                            //MessageBox.Show(numFinal.ToString());
                             this.Invalidate();
                         }
                     }
@@ -562,6 +634,8 @@ namespace JLGJ3._0_test
                         {
                             // 从窗体的 Controls 集合中移除按钮
                             Controls.Remove(button);
+                            numFinal--;//删除一个 button 减一
+                            //MessageBox.Show(numFinal.ToString());
                             this.Invalidate();
                         }
                     }
@@ -583,6 +657,8 @@ namespace JLGJ3._0_test
                         {
                             // 从窗体的 Controls 集合中移除按钮
                             Controls.Remove(button);
+                            numFinal--;//删除一个 button 减一
+                            //MessageBox.Show(numFinal.ToString());
                             this.Invalidate();
                         }
                     }
@@ -597,16 +673,50 @@ namespace JLGJ3._0_test
                     // 遍历窗体的 Controls 集合
                     for (int j = Controls.Count - 1; j >= 0; j--)
                     {
-                        Control control = Controls[j];
-                        if (control == button)
+                        
+                        if (Controls[j] == button)
                         {
+                            
                             // 从窗体的 Controls 集合中移除按钮
-                            Controls.Remove(button);
+                            Controls.Remove(Controls[j]);
+                            numFinal--;//删除一个 button 减一
+                            //MessageBox.Show(numFinal.ToString());
                             this.Invalidate();
                         }
                     }
                 }
                 button_5.Clear();
+            }
+       }
+
+        //游戏失败
+        public void defate(int num)
+        {
+            if(num == 7)
+            {
+                MessageBox.Show("游戏失败 ！！！");
+                this.Close();
+            }
+        }
+
+        //游戏成功
+        public void victory()
+        {
+            // 判断Form中是否存在Button控件
+            bool hasButtonControl = false;
+
+            foreach (Control control in this.Controls)
+            {
+                if (control is Button)
+                {
+                    hasButtonControl = true;
+                    break;
+                }
+            }
+
+            if (!hasButtonControl)
+            {
+                MessageBox.Show("胜利！！！");
             }
         }
     }
