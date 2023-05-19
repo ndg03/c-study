@@ -32,8 +32,6 @@ namespace JLGJ3._0_test
 
         // 定义一个链表  用来  存  被重叠的按钮
         List<Button> buttonOverLaped1;
-
-
         /// <summary>
         /// 装的方法 ,从第一个开始（最上层）
         /// </summary>
@@ -43,14 +41,10 @@ namespace JLGJ3._0_test
             buttonLists.Add(button2);
             buttonLists.Add(button3);
         }
-
-
         //随机数生成器
         private Random random = new Random();
         //图片路径
         public string[] imageFiles = { "1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg" };
-
-
         //创建 随机位置的  按钮
         public void createButton(List<Button> list)
         {
@@ -77,7 +71,6 @@ namespace JLGJ3._0_test
             list.Add(button);
             button.Click += button_Click; // 关联点击事件处理程序
         }
-
         // 随机生成button，背景是随机图片
         public void ShowButton()
         {
@@ -185,18 +178,12 @@ namespace JLGJ3._0_test
                 createButton(button3);
             }
         }
-
-
-
         // 随机选择一张图片文件路径
         private string GetRandomImageFile()
         {
             int index = random.Next(imageFiles.Length);
             return imageFiles[index];
         }
-
-
-
         private void Form1_Load(object sender, EventArgs e)
         {
             MessageBox.Show("游戏开始了！！！");
@@ -209,8 +196,6 @@ namespace JLGJ3._0_test
             //刷新
             this.Invalidate();
         }
-
-
         //将 button添加到  form里面
         public void LoadButton()
         {
@@ -223,9 +208,6 @@ namespace JLGJ3._0_test
                 }
             }
         }
-
-
-
         //设置按钮的随机位置
         private void SetRandomButtonPosition(Button button)
         {
@@ -233,7 +215,6 @@ namespace JLGJ3._0_test
             int y = random.Next(ClientSize.Height -150 - button.Height);
             button.Location = new Point(x, y);
         }
-
         //检查 确保 button1中button不会重叠
         private bool CheckButtonOverlap1(Button button)
         {
@@ -270,7 +251,6 @@ namespace JLGJ3._0_test
             }
             return false;
         }
-
         //按钮点击事件
         void button_Click(object sender, EventArgs e)
         {
@@ -314,8 +294,6 @@ namespace JLGJ3._0_test
                 MessageBox.Show("第5种图片的个数是" + button_5.Count.ToString());
             }
         }
-
-
         /// <summary>
         /// 检查 被点击的button 是否 有重叠的button
         /// </summary>
@@ -455,7 +433,6 @@ namespace JLGJ3._0_test
                 return 0;
             }
         }
-
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             draw();
@@ -482,7 +459,6 @@ namespace JLGJ3._0_test
                 pen.Dispose();  // 绘制完成后释放 Pen 对象
             }
         }
-
         /// <summary>
         /// 定义下一个按钮的位置
         /// </summary>
@@ -504,7 +480,6 @@ namespace JLGJ3._0_test
 
             //MessageBox.Show(numFinal.ToString());
         }
-
         //判断 被点击的按钮的背景是  哪种kun
         public int WhichKun(Button button)
         {
@@ -531,15 +506,12 @@ namespace JLGJ3._0_test
             }
             return backNum;
         }
-
         //定义 链表  用来装 每种 图片 的 具体按钮
         static List<Button> button_1 = new List<Button>();
         static List<Button> button_2 = new List<Button>();
         static List<Button> button_3 = new List<Button>();
         static List<Button> button_4 = new List<Button>();
         static List<Button> button_5 = new List<Button>();
-
-
         /// <summary>
         /// /被点击的按钮的 计数（添加到链表中）  的方法
         /// </summary>
@@ -572,8 +544,6 @@ namespace JLGJ3._0_test
                 return button_5;
             }
         }
-
-
         /// <summary>
         /// 删除 按钮的方法
         /// </summary>
@@ -695,7 +665,6 @@ namespace JLGJ3._0_test
                 button_5.Clear();
             }
        }
-
         //游戏失败
         public void defate(int num)
         {
