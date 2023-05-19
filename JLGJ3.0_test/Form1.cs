@@ -18,6 +18,7 @@ namespace JLGJ3._0_test
         public Form1()
         {
             InitializeComponent();
+            CenterToScreen();//窗体居中
         }
 
         static int numFinal = 0;
