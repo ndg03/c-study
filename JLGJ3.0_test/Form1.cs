@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows;
 using System.Security.Cryptography.X509Certificates;
+using System.Media;
 
 namespace JLGJ3._0_test
 {
@@ -197,8 +198,13 @@ namespace JLGJ3._0_test
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            MessageBox.Show("游戏开始了！！！");
             ShowButton();
             LoadButton();
+            music();
+            //隐藏
+            axWindowsMediaPlayer1.Visible = false;
+            axWindowsMediaPlayer2.Visible = false;
             //刷新
             this.Invalidate();
         }
@@ -272,8 +278,8 @@ namespace JLGJ3._0_test
             //如果可以点击 ，则移动，达到三个则删除
             if (IsClick(clickedButton, buttonOverLaped1))
             {
-                
 
+                sound();
                 move(clickedButton);
                 
                 addList(clickedButton);
@@ -495,7 +501,7 @@ namespace JLGJ3._0_test
 
             numFinal++;// 方框中 的button 数加一
 
-            MessageBox.Show(numFinal.ToString());
+            //MessageBox.Show(numFinal.ToString());
         }
 
         //判断 被点击的按钮的背景是  哪种kun
@@ -719,5 +725,45 @@ namespace JLGJ3._0_test
                 MessageBox.Show("胜利！！！");
             }
         }
+
+        // 音效
+        public void sound()
+        {
+            try
+            {
+                // 设置音效文件的路径
+                string soundFilePath = "amagi.MP3";
+
+                // 播放音效
+                axWindowsMediaPlayer1.URL = soundFilePath;
+                axWindowsMediaPlayer1.Ctlcontrols.play();
+            }
+            catch (Exception ex)
+            {
+                // 处理播放音效时的异常
+                MessageBox.Show($"{ex.Message}");
+            }
+        }
+
+        public void music()
+        {
+            
+            try
+            {
+                
+                // 设置音效文件的路径
+                string soundFilePath = "kun舞.MP3";
+
+                //播放音乐
+                axWindowsMediaPlayer2.URL = soundFilePath;
+                axWindowsMediaPlayer2.Ctlcontrols.play();
+            }
+            catch(Exception ex)
+            {
+                //播放音乐时的 异常
+                MessageBox.Show($"{ex.Message}");
+            }
+        }
     }
 }
+

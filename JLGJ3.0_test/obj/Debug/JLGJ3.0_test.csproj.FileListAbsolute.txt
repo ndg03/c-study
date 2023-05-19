@@ -9,3 +9,8 @@ D:\c#\JLGJ3.0_test\obj\Debug\JLGJ3.0_test.csproj.CoreCompileInputs.cache
 D:\c#\JLGJ3.0_test\obj\Debug\JLGJ3.0_test.exe
 D:\c#\JLGJ3.0_test\obj\Debug\JLGJ3.0_test.pdb
 D:\c#\JLGJ3.0_test\obj\Debug\JLGJ3._0_test.Form1.resources
+D:\c#\JLGJ3.0_test\bin\Debug\Interop.WMPLib.dll
+D:\c#\JLGJ3.0_test\bin\Debug\AxInterop.WMPLib.dll
+D:\c#\JLGJ3.0_test\obj\Debug\Interop.WMPLib.dll
+D:\c#\JLGJ3.0_test\obj\Debug\AxInterop.WMPLib.dll
+D:\c#\JLGJ3.0_test\obj\Debug\JLGJ3.0_test.csproj.ResolveComReference.cache
