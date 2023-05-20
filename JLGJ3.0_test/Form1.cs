@@ -46,7 +46,7 @@ namespace JLGJ3._0_test
         //图片路径
         public string[] imageFiles = { "1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg" };
         //创建 随机位置的  按钮
-        public void createButton(List<Button> list)
+        public void createButton1(List<Button> list)
         {
             // 创建按钮对象
             Button button = new Button();
@@ -71,6 +71,67 @@ namespace JLGJ3._0_test
             list.Add(button);
             button.Click += button_Click; // 关联点击事件处理程序
         }
+
+        public void createButton3(List<Button> list)
+        {
+            // 创建按钮对象
+            Button button = new Button();
+            // 设置按钮属性
+            button.Width = 100;
+            button.Height = 100;
+            // 设置按钮随机位置
+            SetRandomButtonPosition(button);
+            // 检查按钮是否与已创建的按钮重叠
+            bool overlap = CheckButtonOverlap3(button);
+            // 如果按钮与已创建的按钮重叠，则重新设置随机位置
+            while (overlap)
+            {
+                SetRandomButtonPosition(button);
+                overlap = CheckButtonOverlap3(button);
+            }
+            button.BackgroundImage = list[list.Count - 1].BackgroundImage;
+            button.BackgroundImageLayout = ImageLayout.Stretch;
+            button.Tag = list[list.Count - 1].Tag;
+
+            // 将按钮添加到相应的链表中
+            list.Add(button);
+            button.Click += button_Click; // 关联点击事件处理程序
+        }
+
+        public void createButton2(List<Button> list)
+        {
+            // 创建按钮对象
+            Button button = new Button();
+            // 设置按钮属性
+            button.Width = 100;
+            button.Height = 100;
+            // 设置按钮随机位置
+            SetRandomButtonPosition(button);
+            // 检查按钮是否与已创建的按钮重叠
+            bool overlap = CheckButtonOverlap2(button);
+            // 如果按钮与已创建的按钮重叠，则重新设置随机位置
+            while (overlap)
+            {
+                SetRandomButtonPosition(button);
+                overlap = CheckButtonOverlap2(button);
+            }
+            button.BackgroundImage = list[list.Count - 1].BackgroundImage;
+            button.BackgroundImageLayout = ImageLayout.Stretch;
+            button.Tag = list[list.Count - 1].Tag;
+
+            // 将按钮添加到相应的链表中
+            list.Add(button);
+            button.Click += button_Click; // 关联点击事件处理程序
+        }
+
+
+
+
+
+
+
+
+
         // 随机生成button，背景是随机图片
         public void ShowButton()
         {
@@ -104,8 +165,8 @@ namespace JLGJ3._0_test
                 button1.Add(button);
 
                 button.Click += button_Click; // 关联点击事件处理程序
-                createButton(button1);
-                createButton(button1);
+                createButton1(button1);
+                createButton1(button1);
             }
 
             //生成 button2的按钮
@@ -138,8 +199,8 @@ namespace JLGJ3._0_test
                 button2.Add(button);
 
                 button.Click += button_Click; // 关联点击事件处理程序
-                createButton(button2);
-                createButton(button2);
+                createButton2(button2);
+                createButton2(button2);
 
             }
 
@@ -174,8 +235,8 @@ namespace JLGJ3._0_test
                 button3.Add(button);
 
                 button.Click += button_Click; // 关联点击事件处理程序
-                createButton(button3);
-                createButton(button3);
+                createButton3(button3);
+                createButton3(button3);
             }
         }
         // 随机选择一张图片文件路径
@@ -186,7 +247,7 @@ namespace JLGJ3._0_test
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            MessageBox.Show("游戏开始了！！！");
+            //MessageBox.Show("游戏开始了！！！");
             ShowButton();
             LoadButton();
             music();
@@ -256,6 +317,9 @@ namespace JLGJ3._0_test
         {
             Button clickedButton = (Button)sender;
             buttonOverLaped1 = IsOverLap(clickedButton);
+
+            //MessageBox.Show(IsWhichFloor(clickedButton).ToString());//用于调试代码
+
             //如果可以点击 ，则移动，达到三个则删除
             if (IsClick(clickedButton, buttonOverLaped1))
             {
@@ -263,6 +327,10 @@ namespace JLGJ3._0_test
                 sound();
                 move(clickedButton);
                 
+                buttonList.Add(clickedButton);
+
+                //MessageBox.Show(buttonList.Count.ToString());//调试代码
+
                 addList(clickedButton);
                 //showNum(clickedButton);
                 removeButton();
@@ -333,6 +401,12 @@ namespace JLGJ3._0_test
         /// <returns>是否</returns>
         public bool IsClick(Button button ,List<Button> list)
         {
+            //最下面 框 里的按钮不能点击
+            if (button.Location.Y == 445)
+            {
+                button.Enabled = false;//下面方框 里的按钮  直接 不能点击
+                return false;
+            }
             //MessageBox.Show(list.Count.ToString());
             //被点击按钮的层级关系
             int ClickedFloor = IsWhichFloor(button);
@@ -362,11 +436,7 @@ namespace JLGJ3._0_test
                     i++;
                 }
             }
-            //最下面 框 里的按钮不能点击
-            if(button.Location.Y == 445)
-            {
-                return false;
-            }
+            
             //被点击的按钮的层级关系  == 1  或者  被点击的按钮周围没有重叠的按钮
             if(ClickedFloor == 1  || list.Count == 0)
             {
@@ -398,19 +468,6 @@ namespace JLGJ3._0_test
                 {
                     return false;
                 }
-
-
-                /*if (ClickedFloor == 2)
-                {
-                    return true;
-                }
-                else if (ClickedFloor == 3 && list == null)
-                {
-                    return true;
-                }else
-                {
-                    return false;
-                }*/
             }
         }
         //判断按钮的层级关系
@@ -469,16 +526,12 @@ namespace JLGJ3._0_test
             Point point = new Point(109 + n * 112,445);
             return point;
         }
-        int t = 0;//初始化按钮个数
+
         //定义 方法 移动 按钮
         public void move(Button button)
         {
-            t = numFinal;
-            button.Location = NextPoint(t++ % 7);
-
+            button.Location = NextPoint(buttonList.Count % 7);
             numFinal++;// 方框中 的button 数加一
-
-            //MessageBox.Show(numFinal.ToString());
         }
         //判断 被点击的按钮的背景是  哪种kun
         public int WhichKun(Button button)
@@ -566,6 +619,9 @@ namespace JLGJ3._0_test
                             // 从窗体的 Controls 集合中移除按钮
                             Controls.Remove(button);
                             numFinal--;//删除一个 button 减一
+
+                            buttonList.Remove(button);
+
                             //MessageBox.Show(numFinal.ToString());
                             this.Invalidate();
                         }
@@ -589,6 +645,8 @@ namespace JLGJ3._0_test
                             // 从窗体的 Controls 集合中移除按钮
                             Controls.Remove(button);
                             numFinal--;//删除一个 button 减一
+
+                            buttonList.Remove(button);
                             //MessageBox.Show(numFinal.ToString());
                             this.Invalidate();
                         }
@@ -612,6 +670,8 @@ namespace JLGJ3._0_test
                             // 从窗体的 Controls 集合中移除按钮
                             Controls.Remove(button);
                             numFinal--;//删除一个 button 减一
+
+                            buttonList.Remove(button);
                             //MessageBox.Show(numFinal.ToString());
                             this.Invalidate();
                         }
@@ -634,7 +694,11 @@ namespace JLGJ3._0_test
                         {
                             // 从窗体的 Controls 集合中移除按钮
                             Controls.Remove(button);
+
+                            buttonList.Remove(button);
                             numFinal--;//删除一个 button 减一
+
+
                             //MessageBox.Show(numFinal.ToString());
                             this.Invalidate();
                         }
@@ -656,6 +720,8 @@ namespace JLGJ3._0_test
                             
                             // 从窗体的 Controls 集合中移除按钮
                             Controls.Remove(Controls[j]);
+
+                            buttonList.Remove(button);
                             numFinal--;//删除一个 button 减一
                             //MessageBox.Show(numFinal.ToString());
                             this.Invalidate();
@@ -664,6 +730,7 @@ namespace JLGJ3._0_test
                 }
                 button_5.Clear();
             }
+            moveTwice();
        }
         //游戏失败
         public void defate(int num)
@@ -693,6 +760,7 @@ namespace JLGJ3._0_test
             if (!hasButtonControl)
             {
                 MessageBox.Show("胜利！！！");
+                this.Close ();
             }
         }
 
@@ -720,10 +788,8 @@ namespace JLGJ3._0_test
             
             try
             {
-                
                 // 设置音效文件的路径
                 string soundFilePath = "kun舞.MP3";
-
                 //播放音乐
                 axWindowsMediaPlayer2.URL = soundFilePath;
                 axWindowsMediaPlayer2.Ctlcontrols.play();
@@ -732,6 +798,16 @@ namespace JLGJ3._0_test
             {
                 //播放音乐时的 异常
                 MessageBox.Show($"{ex.Message}");
+            }
+        }
+
+        List<Button> buttonList = new List<Button>();
+        //重定位 方法
+        public void moveTwice()
+        {
+            for(int i = 0; i < buttonList.Count; i++)
+            {
+                buttonList[i].Location = NextPoint(i);
             }
         }
     }
