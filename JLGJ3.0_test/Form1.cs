@@ -247,7 +247,7 @@ namespace JLGJ3._0_test
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            //MessageBox.Show("游戏开始了！！！");
+            MessageBox.Show("游戏开始了！！！");
             ShowButton();
             LoadButton();
             music();
